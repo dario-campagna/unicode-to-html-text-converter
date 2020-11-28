@@ -9,7 +9,7 @@ public class ConvertUnicodeFileToHtml {
     @Test
     public void emptyFile() throws Exception {
         String filePath = getClass().getClassLoader().getResource("empty.txt").getPath();
-        UnicodeToHtmlTextConverter textConverter = new UnicodeToHtmlTextConverter(filePath);
+        UnicodeToHtmlTextConverter textConverter = new UnicodeToHtmlTextConverter(new FileTextReader(filePath));
 
         String html = textConverter.convertToHtml();
 
@@ -18,8 +18,8 @@ public class ConvertUnicodeFileToHtml {
 
     @Test
     public void fileWithText() throws Exception {
-        String path = getClass().getClassLoader().getResource("unicodeText.txt").getPath();
-        UnicodeToHtmlTextConverter textConverter = new UnicodeToHtmlTextConverter(path);
+        String filePath = getClass().getClassLoader().getResource("unicodeText.txt").getPath();
+        UnicodeToHtmlTextConverter textConverter = new UnicodeToHtmlTextConverter(new FileTextReader(filePath));
 
         String html = textConverter.convertToHtml();
 
